@@ -2,6 +2,8 @@ import { supabase } from './supabaseClient.js';
 
 async function cargarPartidos() {
   const lista = document.getElementById('partidos-list');
+  if (!lista) return;
+
   const { data, error } = await supabase.from('partidos').select('*');
 
   if (error) {
@@ -40,5 +42,22 @@ window.unirse = async (partidoId) => {
     alert('Solicitud enviada');
   }
 };
+
+document.getElementById('joinPartidoForm')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const nombre = document.getElementById('nombre').value;
+  const partidoId = document.getElementById('partidoId').value;
+
+  const { error } = await supabase.from('participantes').insert([
+    { partido_id: partidoId, usuario_nombre: nombre }
+  ]);
+
+  if (error) {
+    alert('Error al unirse al partido');
+  } else {
+    alert('Solicitud enviada');
+    window.location.href = 'index.html';
+  }
+});
 
 cargarPartidos();
