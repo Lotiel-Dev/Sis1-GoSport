@@ -12,7 +12,7 @@ document.getElementById('crearPartidoForm').addEventListener('submit', async (e)
     .from('partidos')
     .insert([
       { 
-        creador_id: crypto.randomUUID(), // Esto puedes mantenerlo como UUID o cambiarlo
+        creador_id: crypto.randomUUID(), // Id aleatorio para el creador
         deporte, 
         fecha, 
         hora, 
@@ -25,7 +25,7 @@ document.getElementById('crearPartidoForm').addEventListener('submit', async (e)
     console.error('Error:', error);
     alert('Error al crear partido');
   } else {
-    console.log('Partido creado con ID:', data[0].id); // Ahora será un número secuencial
+    console.log('Partido creado con ID:', data[0].id);
     alert(`Partido creado con ID: ${data[0].id}`);
     window.location.href = 'index.html';
   }
