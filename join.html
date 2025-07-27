@@ -7,18 +7,31 @@
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Unirse a Partido</h1>
-    <nav>
-      <a href="index.html">Volver</a>
-    </nav>
+  <header class="header-pro">
+    <div class="logo-title">
+      <div class="logo-check">✔️</div>
+      <div>
+        <h1 class="app-title">GoSport</h1>
+        <span class="subtitle">Gestión de partidos y canchas</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" class="btn btn-blue">Volver</a>
+    </div>
   </header>
   <main>
-    <form id="joinPartidoForm">
-      <label>Nombre: <input type="text" id="nombre" required /></label>
-      <label>ID del Partido: <input type="text" id="partidoId" required /></label>
-      <button type="submit">Unirse</button>
-    </form>
+    <section style="max-width: 430px; margin: 2.5rem auto 0 auto;">
+      <h2 style="margin-bottom:1.2rem;">Unirse a Partido</h2>
+      <form id="joinPartidoForm" class="partido-form">
+        <label>Nombre
+          <input type="text" id="nombre" required placeholder="Tu nombre" />
+        </label>
+        <label>ID del Partido
+          <input type="text" id="partidoId" required placeholder="Ej: 1234-5678" />
+        </label>
+        <button type="submit" class="btn btn-green" style="margin-top:1rem;">Unirse</button>
+      </form>
+    </section>
   </main>
   <script type="module" src="./js/join.js"></script>
 </body>
