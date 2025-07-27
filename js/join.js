@@ -8,26 +8,37 @@ async function cargarPartidos() {
   lista.innerHTML = '';
   if (countSpan) countSpan.textContent = '';
 
-  const { data, error } = await supabase.from('partidos').select('*');
+  // Traer partidos y participantes en paralelo
+  const [{ data: partidos, error: errorPartidos }, { data: participantes, error: errorParticipantes }] = await Promise.all([
+    supabase.from('partidos').select('*'),
+    supabase.from('participantes').select('*')
+  ]);
 
-  if (error) {
+  if (errorPartidos || errorParticipantes) {
     lista.innerHTML = '<div class="partido-card">Error al cargar partidos</div>';
     return;
   }
 
-  if (!data || data.length === 0) {
+  if (!partidos || partidos.length === 0) {
     lista.innerHTML = '<div class="partido-card">No hay partidos disponibles</div>';
     if (countSpan) countSpan.textContent = '0 partidos totales';
     return;
   }
 
-  if (countSpan) countSpan.textContent = `${data.length} partido${data.length === 1 ? '' : 's'} total${data.length === 1 ? '' : 'es'}`;
+  if (countSpan) countSpan.textContent = `${partidos.length} partido${partidos.length === 1 ? '' : 's'} total${partidos.length === 1 ? '' : 'es'}`;
 
-  data.forEach((partido, idx) => {
+  partidos.forEach((partido, idx) => {
     // Estado de ejemplo: alternar color por fecha/hora o por idx
     let statusColor = 'green';
     if (idx % 3 === 1) statusColor = 'orange';
     if (idx % 3 === 2) statusColor = 'blue';
+
+    // Filtrar participantes de este partido
+    const part = participantes.filter(p => p.partido_id === partido.id);
+    const enEspera = part.filter(p => p.estado === 'pendiente').length;
+    const aceptados = part.filter(p => p.estado === 'aceptado').length;
+    const rechazados = part.filter(p => p.estado === 'rechazado').length;
+    const total = part.length;
 
     const card = document.createElement('div');
     card.className = `partido-card ${statusColor}`;
@@ -36,6 +47,8 @@ async function cargarPartidos() {
         <span class="partido-status ${statusColor}"></span>
         <span class="partido-title">${partido.deporte}</span>
         <div class="partido-actions">
+          <button title="Editar" onclick="editarPartido(${partido.id})">✏️</button>
+          <button title="Eliminar" onclick="eliminarPartido(${partido.id})">🗑️</button>
           <button title="Unirse" onclick="unirse('${partido.id}')">➕</button>
         </div>
       </div>
@@ -45,12 +58,30 @@ async function cargarPartidos() {
       </div>
       <div class="partido-meta">
         <span class="icon">📍</span> ${partido.ubicacion}
-        <!-- Aquí podrías agregar más info, como número de jugadores -->
+        <span class="icon" title="Jugadores aceptados">👥 <b>${aceptados}</b></span>
+        <span class="icon" title="En espera">⏳ <b>${enEspera}</b></span>
+        <span class="icon" title="Rechazados">❌ <b>${rechazados}</b></span>
+        <span class="icon" title="Total">| <b>${total}</b></span>
       </div>
     `;
     lista.appendChild(card);
   });
 }
+// Eliminar partido
+window.eliminarPartido = async (partidoId) => {
+  if (!confirm('¿Seguro que deseas eliminar este partido?')) return;
+  const { error } = await supabase.from('partidos').delete().eq('id', partidoId);
+  if (error) {
+    alert('Error al eliminar partido');
+  } else {
+    cargarPartidos();
+  }
+};
+
+// Editar partido (solo ejemplo: redirige a create.html con query param, deberías implementar el formulario de edición real)
+window.editarPartido = (partidoId) => {
+  window.location.href = `create.html?edit=${partidoId}`;
+};
 
 function formatearFecha(fechaStr) {
   // Espera formato YYYY-MM-DD
