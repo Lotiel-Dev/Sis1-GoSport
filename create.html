@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Partido - GoSport</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Crear Partido</h1>
+    <nav>
+      <a href="index.html">Volver</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="crearPartidoForm">
+      <label>Deporte: <input type="text" id="deporte" required /></label>
+      <label>Fecha: <input type="date" id="fecha" required /></label>
+      <label>Hora: <input type="time" id="hora" required /></label>
+      <label>Ubicación: <input type="text" id="ubicacion" required /></label>
+      <button type="submit">Crear</button>
+    </form>
+  </main>
+
+  <script type="module" src="./js/create.js"></script>
+</body>
+</html>
