@@ -21,16 +21,16 @@ body {
   gap: 1rem;
 }
 .logo-check {
-  background: #22c55e;
+  background: #ffffff;
   color: #fff;
   border-radius: 8px;
   font-size: 1.5rem;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 6rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.5rem;
+  margin-right: 0rem;
 }
 .app-title {
   margin: 0;
