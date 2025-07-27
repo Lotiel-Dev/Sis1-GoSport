@@ -1,27 +1,199 @@
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background: #f6f8fa;
+  color: #222;
 }
 
-header {
-  background: #0a5275;
-  color: white;
-  padding: 1rem;
+.header-pro {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo-check {
+  background: #22c55e;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+.header-actions {
+  display: flex;
+  gap: 0.7rem;
+}
+.btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.2s;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.04);
+}
+.btn-green {
+  background: #22c55e;
+}
+.btn-green:hover {
+  background: #16a34a;
+}
+.btn-blue {
+  background: #2563eb;
+}
+.btn-blue:hover {
+  background: #1d4ed8;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 1rem;
+.tabs {
+  display: flex;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.3rem 2rem 0.3rem 2rem;
+  gap: 1rem;
+}
+.tab {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px 8px 0 0;
+  color: #64748b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tab.active {
+  background: #fff;
+  color: #222;
+  border-bottom: 2px solid #22c55e;
+}
+.tab:disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
 }
 
 main {
-  padding: 1rem;
+  padding: 2rem 2rem 1rem 2rem;
+  min-height: 80vh;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+.partidos-count {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.partidos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.partido-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 6px solid #22c55e;
+  position: relative;
+}
+.partido-card.orange {
+  border-left-color: #f59e42;
+}
+.partido-card.blue {
+  border-left-color: #2563eb;
+}
+.partido-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.partido-status {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+.partido-status.green {
+  background: #22c55e;
+}
+.partido-status.orange {
+  background: #f59e42;
+}
+.partido-status.blue {
+  background: #2563eb;
+}
+.partido-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.partido-info {
+  color: #64748b;
+  font-size: 0.98rem;
+}
+.partido-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 0.97rem;
+  color: #64748b;
+}
+.partido-meta .icon {
+  margin-right: 0.3rem;
+}
+.partido-actions {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.partido-actions button {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.partido-actions button:hover {
+  color: #222;
 }
 
 form {
@@ -30,29 +202,23 @@ form {
   gap: 0.5rem;
   max-width: 400px;
 }
-
 input, button {
   padding: 0.5rem;
   font-size: 1rem;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  background: white;
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
 @media (max-width: 600px) {
-  header, main {
-    padding: 0.5rem;
+  .header-pro, main, .tabs {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   form {
     width: 100%;
+  }
+  .partidos-list {
+    gap: 0.7rem;
+  }
+  .partido-card {
+    padding: 1rem 0.7rem;
   }
 }
