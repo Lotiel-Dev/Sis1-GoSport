@@ -7,18 +7,34 @@
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-  <header>
-    <h1>GoSport</h1>
-    <nav>
-      <a href="create.html">Crear Partido</a>
-      <a href="join.html">Unirse Partido</a>
-    </nav>
+
+  <header class="header-pro">
+    <div class="logo-title">
+      <div class="logo-check">✔️</div>
+      <div>
+        <h1 class="app-title">GoSport</h1>
+        <span class="subtitle">Gestión de partidos y canchas</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="create.html" class="btn btn-green">Nuevo Partido</a>
+      <a href="join.html" class="btn btn-blue">Unirse Partido</a>
+    </div>
   </header>
+
+  <nav class="tabs">
+    <button class="tab active">Partidos</button>
+    <button class="tab" disabled>Canchas</button>
+    <button class="tab" disabled>Reservas</button>
+  </nav>
 
   <main>
     <section>
-      <h2>Partidos Disponibles</h2>
-      <ul id="partidos-list"></ul>
+      <div class="section-header">
+        <h2>Partidos Programados</h2>
+        <span id="partidos-count" class="partidos-count"></span>
+      </div>
+      <div id="partidos-list" class="partidos-list"></div>
     </section>
   </main>
 
