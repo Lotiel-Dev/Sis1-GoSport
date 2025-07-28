@@ -19,5 +19,7 @@
 ## Lista de Integrantes
 
 Bismark Gonzales Soliz
+
 Carlos Antonio Gutierrez Copara
+
 Samuel Abrahan Fuentes Contreras 
