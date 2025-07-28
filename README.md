@@ -19,3 +19,4 @@
 ## Lista de Integrantes
 
 Carlos Antonio Gutierrez Copara
+Samuel Abrahan Fuentes Contreras 
