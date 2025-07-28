@@ -28,4 +28,6 @@ Mariel Andrea Morales Fernández
 
 Samuel Abrahan Fuentes Contreras 
 
+Juan Carlos Llampa Martinez 
+
 
