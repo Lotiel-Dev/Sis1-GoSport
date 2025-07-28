@@ -15,3 +15,7 @@
     ```
 
     en la raiz del directorio.
+
+## Lista de Integrantes
+
+Carlos Antonio Gutierrez Copara
