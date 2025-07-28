@@ -24,10 +24,10 @@ Bismark Gonzales Soliz
 
 Carlos Antonio Gutierrez Copara
 
+Juan Carlos Llampa Martinez 
+
 Mariel Andrea Morales Fernández
 
 Samuel Abrahan Fuentes Contreras 
-
-Juan Carlos Llampa Martinez 
 
 
