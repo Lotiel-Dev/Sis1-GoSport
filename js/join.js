@@ -78,7 +78,7 @@ window.eliminarPartido = async (partidoId) => {
   }
 };
 
-// Editar partido (solo ejemplo: redirige a create.html con query param, deberías implementar el formulario de edición real)
+// Editar partido (solo ejemplo: redirige a create.html con query param)
 window.editarPartido = (partidoId) => {
   window.location.href = `create.html?edit=${partidoId}`;
 };
