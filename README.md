@@ -24,6 +24,8 @@ Bismark Gonzales Soliz
 
 Carlos Antonio Gutierrez Copara
 
+Mariel Andrea Morales Fernández
+
 Samuel Abrahan Fuentes Contreras 
 
 
